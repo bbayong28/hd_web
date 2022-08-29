@@ -9,7 +9,7 @@
     overflow: hidden;
     height: 155px;
     transition: 0.4s;
-    line-height: 100px;
+    line-height: 1;
     /*height: 100%; 하면 transition 안먹음*/
     /* 여기  padding: 50px 0; 있으면 안접힘 - 내가 접는 박스에 패딩있으면 안접힘*/
 }
@@ -46,14 +46,17 @@
 }
 
 .Header{
-    position: absolute;
-    top: 155px;
+    position: sticky;
+    top: 0;
     left: 0;
     right: 0;
+    /* padding: 0 75px; */
     background: rgba(0, 0, 0, 0.3);
     color: #f9f9f9;
     line-height: 100px;
-    transition: 0.5s;
+    transition: 0.5s;    
+    border-bottom: 1px solid #ddd;
+   /*  border-bottom: 1px solid transparent; */
     z-index: 999;
 }
 
@@ -62,8 +65,15 @@
     color: #444444;
 }
 
+.Header.on{
+    background: rgba(255, 255, 255, 1);
+    color: #444444;
+    line-height: 70px;
+}
+
 .Header h1{
     float: left;
+    margin-left: 70px;
 }
 
 .Header h1 a{
@@ -78,16 +88,19 @@
 .Header:hover h1 a{
     background: url(../assets/logo.png);
 }
+.Header.on h1 a{
+    background: url(../assets/logo.png);
+}
 
 .Header .Gnb{
     float: left;
     margin-left: 50px;
 }
 
-.Header  .top_service{
+.Header .top_service{
     float: right;
+    margin-right: 70px;
 }
-
 
 .Header .Gnb>ul>li{
     float: left;    
@@ -106,9 +119,9 @@
     left: 35px;
     right: 100%;
     bottom: 0;
-    height: 0;
     height: 2px;
     background: #008850;
+    transition: 0.3s;
 }
 
 .Header .Gnb>ul>li>a:hover::after{
@@ -117,7 +130,7 @@
 
 .main_slider figure{
     position: relative;
-    height: 700px;
+    height: 900px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -143,6 +156,80 @@
 }
 
 .Section01 {
-    margin: -155px auto auto auto;
+    transform: translateY(-155px);
+    height: 745px;
 }
- 
+
+.Section02{
+    padding: 100px 0;
+    text-align: center;
+}
+
+.Section02 h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.Section02>p{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.Section02 .inner figure{
+    float: left;
+    /* width: 33.3333333%; */
+    width: calc(100% / 3);
+    
+}
+
+.Section02 .inner .thumb{
+    overflow: hidden;
+    margin-bottom: 40px;
+
+}
+
+.Section02 .inner figure img{
+    transition: 0.4s;
+
+}
+
+.Section02 .inner figure:hover img{
+    transform:  scale(1.2);
+}
+
+.Section02 .inner .des{
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.Section02 .inner .des::before{
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: #008850;    
+
+}
+
+.Section02 .inner p{
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.45;
+}
+
+.Section02 .inner  a{
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #008850;
+    color: #008850;
+    font-size: 13px;
+}
